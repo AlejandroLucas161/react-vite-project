@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+
+  margin: 0;
+  padding: 0;
+
+  color: #333333;
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  background-repeat: no-repeat;
+  background-size: 150%;
+  background-image: linear-gradient(
+    135deg,
+    rgba(111, 191, 145, 1) 30%,
+    rgba(162, 200, 182, 1) 70%,
+    rgba(184, 230, 199, 1) 100%
+  );
+  animation: bg-animation 8s ease infinite;
+}
+
+@keyframes bg-animation {
+  0% {
+    background-position: 0 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0 50%;
+  }
+}
