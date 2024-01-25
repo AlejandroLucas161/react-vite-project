@@ -7,8 +7,7 @@ export const HomeContainer = styled("div")`
   align-items: center;
   gap: 12px;
 
-  width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
 `;
 
 export const Title = styled("h1")`
@@ -18,8 +17,31 @@ export const Title = styled("h1")`
 `;
 
 export const Subtitle = styled("h3")`
+  max-width: 800px;
+
   font-size: 32px;
   font-weight: 400;
   text-align: center;
-  max-width: 800px;
+`;
+
+export const Sections = styled("div")`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+
+  margin-top: 18px;
+`;
+
+export const Section = styled("div")`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 400px;
+  height: 300px;
+
+  border: 3px solid #333;
+  border-radius: 12px;
 `;
