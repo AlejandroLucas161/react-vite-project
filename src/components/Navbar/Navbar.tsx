@@ -6,7 +6,7 @@ import {
   UserInfoContainer,
 } from "./style";
 
-const NavBar: FunctionComponent = () => {
+const Navbar: FunctionComponent = () => {
   return (
     <NavbarContainer>
       <NavbarItem>Task Board</NavbarItem>
@@ -19,4 +19,4 @@ const NavBar: FunctionComponent = () => {
   );
 };
 
-export default NavBar;
+export default Navbar;
