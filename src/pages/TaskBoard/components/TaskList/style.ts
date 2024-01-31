@@ -20,7 +20,7 @@ export const TaskListTitle = styled("span")`
   padding: 6px;
   margin-bottom: 12px;
 
-  color: ##b5b5b5;
+  color: #b5b5b5;
   font-weight: 600;
 `;
 
@@ -42,7 +42,7 @@ export const TaskListFooter = styled("div")`
   padding: 6px;
   margin-top: 12px;
 
-  color: ##b5b5b5;
+  color: #b5b5b5;
 
   border-radius: 8px;
   transition: background-color 300ms;

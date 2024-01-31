@@ -30,7 +30,7 @@ export const AddTaskListButton = styled("button")`
 
   padding: 12px;
 
-  color: ##b5b5b5;
+  color: #b5b5b5;
   font-size: 14px;
   font-weight: 600;
 
