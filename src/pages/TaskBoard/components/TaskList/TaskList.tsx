@@ -17,6 +17,13 @@ const TaskList: FunctionComponent = () => {
         <Tasks>
           <Task />
           <Task />
+          <Task />
+          <Task />
+          <Task />
+          <Task />
+          <Task />
+          <Task />
+          <Task />
         </Tasks>
 
         <TaskListFooter>

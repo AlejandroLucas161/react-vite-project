@@ -1,4 +1,5 @@
 import { styled } from "@mui/material";
+import { Link } from "react-router-dom";
 
 export const HomeContainer = styled("div")`
   display: flex;
@@ -34,7 +35,7 @@ export const Sections = styled("div")`
   margin-top: 18px;
 `;
 
-export const Section = styled("div")`
+export const Section = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,4 +45,6 @@ export const Section = styled("div")`
 
   border: 3px solid #333;
   border-radius: 12px;
+
+  cursor: pointer;
 `;

@@ -6,7 +6,9 @@ export const TasksWrapper = styled("div")`
   flex-direction: row;
   gap: 12px;
 
+  height: calc(100vh - 68px);
   padding: 12px;
+
   overflow-x: auto;
   overflow-y: hidden;
   white-space: nowrap;

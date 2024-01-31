@@ -1,5 +1,4 @@
 import { FunctionComponent } from "react";
-import { Link } from "react-router-dom";
 import useStore from "../../store/store";
 import { HomeContainer, Section, Sections, Subtitle, Title } from "./style";
 
@@ -27,11 +26,9 @@ const Home: FunctionComponent = () => {
 
       <Sections>
         {SectionsArr.map(({ id, title, route }) => (
-          <Link to={route} key={id}>
-            <Section>
-              <Subtitle>{title}</Subtitle>
-            </Section>
-          </Link>
+          <Section to={route} key={id}>
+            <Subtitle>{title}</Subtitle>
+          </Section>
         ))}
       </Sections>
     </HomeContainer>

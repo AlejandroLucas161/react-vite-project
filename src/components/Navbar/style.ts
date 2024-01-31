@@ -1,4 +1,5 @@
 import { styled } from "@mui/material";
+import { Link } from "react-router-dom";
 
 export const NavbarContainer = styled("ul")`
   display: flex;
@@ -23,6 +24,20 @@ export const NavbarContainer = styled("ul")`
 export const NavbarItem = styled("li")`
   font-size: 18px;
   font-weight: 600;
+`;
+
+export const NavbarItemLink = styled(Link)`
+  transition: all 300ms;
+
+  cursor: pointer;
+
+  &:hover {
+    color: rgba(51, 51, 51, 0.6);
+  }
+`;
+
+export const NavbarItemText = styled("span")`
+  color: rgba(51, 51, 51, 0.6);
 `;
 
 export const UserInfoContainer = styled("div")`

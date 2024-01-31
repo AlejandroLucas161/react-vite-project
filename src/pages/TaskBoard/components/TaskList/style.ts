@@ -5,8 +5,9 @@ export const TaskListContainer = styled("div")`
   flex-direction: column;
 
   width: 272px;
+  height: fit-content;
 
-  padding: 8px;
+  padding: 8px 6px;
 
   font-size: 14px;
 
@@ -30,6 +31,22 @@ export const Tasks = styled("div")`
   justify-content: flex-start;
   align-items: flex-start;
   gap: 8px;
+
+  max-height: calc(100vh - 198px);
+  padding: 0 6px;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba(102, 102, 102, 0.3);
+    border-radius: 4px;
+    margin: 0px;
+  }
 `;
 
 export const TaskListFooter = styled("div")`
@@ -40,12 +57,14 @@ export const TaskListFooter = styled("div")`
   gap: 8px;
 
   padding: 6px;
-  margin-top: 12px;
+  margin: 12px 4px 0;
 
   color: #b5b5b5;
 
   border-radius: 8px;
   transition: background-color 300ms;
+
+  cursor: pointer;
 
   &:hover {
     background-color: rgba(119, 119, 119, 0.4);

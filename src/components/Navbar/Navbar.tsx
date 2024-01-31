@@ -2,6 +2,8 @@ import { FunctionComponent } from "react";
 import {
   NavbarContainer,
   NavbarItem,
+  NavbarItemLink,
+  NavbarItemText,
   UserImage,
   UserInfoContainer,
 } from "./style";
@@ -9,7 +11,11 @@ import {
 const Navbar: FunctionComponent = () => {
   return (
     <NavbarContainer>
-      <NavbarItem>Task Board</NavbarItem>
+      <NavbarItem>
+        <NavbarItemLink to="/react-vite-project">Home</NavbarItemLink>
+        {" / "}
+        <NavbarItemText>Task board</NavbarItemText>
+      </NavbarItem>
 
       <UserInfoContainer>
         <NavbarItem>Full name</NavbarItem>

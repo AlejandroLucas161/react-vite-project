@@ -11,10 +11,6 @@ const TaskBoard: FunctionComponent = () => {
       <TasksWrapper>
         <TaskList />
         <TaskList />
-        <TaskList />
-        <TaskList />
-        <TaskList />
-        <TaskList />
 
         <AddTaskListButton>
           <PlusIcon size="16px" />
