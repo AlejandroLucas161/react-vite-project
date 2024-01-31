@@ -40,7 +40,7 @@ export const Section = styled("div")`
   align-items: center;
 
   width: 400px;
-  height: 300px;
+  min-height: 300px;
 
   border: 3px solid #333;
   border-radius: 12px;
