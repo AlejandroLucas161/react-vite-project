@@ -12,7 +12,7 @@ const Navbar: FunctionComponent = () => {
   return (
     <NavbarContainer>
       <NavbarItem>
-        <NavbarItemLink to="/react-vite-project">Home</NavbarItemLink>
+        <NavbarItemLink to="/">Home</NavbarItemLink>
         {" / "}
         <NavbarItemText>Task board</NavbarItemText>
       </NavbarItem>

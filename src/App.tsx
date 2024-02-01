@@ -6,7 +6,7 @@ const App: FunctionComponent = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/react-vite-project" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/task-board" element={<TaskBoard />} />
         <Route path="/project-management" element={<></>} />
       </Routes>
