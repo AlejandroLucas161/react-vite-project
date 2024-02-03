@@ -58,3 +58,13 @@ export const PlusIcon = styled("div")<{ size: string }>`
 
   object-fit: cover;
 `;
+
+export const DeleteAllList = styled("span")`
+  text-decoration: underline;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  left: 260px;
+  color: yellow;
+  font-weight: 900;
+`;

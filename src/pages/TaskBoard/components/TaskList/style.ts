@@ -1,4 +1,4 @@
-import { styled } from "@mui/material";
+import { css, styled } from "@mui/material";
 
 export const TaskListContainer = styled("div")`
   display: flex;
@@ -15,14 +15,31 @@ export const TaskListContainer = styled("div")`
   background-color: #444;
 `;
 
-export const TaskListTitle = styled("span")`
+export const TaskListTitle = styled("input")<{ isEditing: boolean }>`
   display: inline-block;
 
   padding: 6px;
-  margin-bottom: 12px;
+  margin: 0 6px 12px;
 
   color: #b5b5b5;
   font-weight: 600;
+
+  border-radius: 8px;
+
+  border: 1px solid #b5b5b5;
+  outline: none;
+  background: none;
+
+  transition: all 300ms;
+
+  &:active {
+    background: none;
+    outline: none;
+  }
+
+  &:read-only {
+    border: 1px solid transparent;
+  }
 `;
 
 export const Tasks = styled("div")`
@@ -49,7 +66,7 @@ export const Tasks = styled("div")`
   }
 `;
 
-export const TaskListFooter = styled("div")`
+export const TaskListFooter = styled("div")<{ isEditing: boolean }>`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -64,9 +81,40 @@ export const TaskListFooter = styled("div")`
   border-radius: 8px;
   transition: background-color 300ms;
 
+  ${({ isEditing }) =>
+    isEditing
+      ? css`
+          cursor: default;
+          margin-top: 0;
+        `
+      : css`
+          cursor: pointer;
+
+          &:hover {
+            background-color: rgba(119, 119, 119, 0.4);
+          }
+        `}
+`;
+
+export const TaskAddButton = styled("button")`
+  padding: 6px 12px;
+
+  border-radius: 4px;
+  background-color: #b8e6c7;
+
+  transition: all 300ms;
+
+  border: none;
+  outline: none;
+
   cursor: pointer;
 
-  &:hover {
-    background-color: rgba(119, 119, 119, 0.4);
+  &:disabled {
+    opacity: 0.4;
+    cursor: default;
+  }
+
+  &:not(:disabled):hover {
+    background-color: #a2c8b6;
   }
 `;
