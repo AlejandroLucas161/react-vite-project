@@ -1,5 +1,5 @@
+import plusIcon from "@/assets/plus-icon.svg";
 import { styled } from "@mui/material";
-import plusIcon from "../../assets/plus-icon.svg";
 
 export const TasksWrapper = styled("div")`
   display: flex;

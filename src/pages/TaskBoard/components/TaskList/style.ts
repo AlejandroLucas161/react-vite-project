@@ -1,3 +1,4 @@
+import closeIcon from "@/assets/close-icon.svg";
 import { css, styled } from "@mui/material";
 
 export const TaskListContainer = styled("div")`
@@ -7,7 +8,7 @@ export const TaskListContainer = styled("div")`
   width: 272px;
   height: fit-content;
 
-  padding: 8px 6px;
+  padding: 8px 0px;
 
   font-size: 14px;
 
@@ -15,11 +16,11 @@ export const TaskListContainer = styled("div")`
   background-color: #444;
 `;
 
-export const TaskListTitle = styled("input")<{ isEditing: boolean }>`
+export const TaskListTitle = styled("input")`
   display: inline-block;
 
   padding: 6px;
-  margin: 0 6px 12px;
+  margin: 0 8px 12px;
 
   color: #b5b5b5;
   font-weight: 600;
@@ -66,7 +67,7 @@ export const Tasks = styled("div")`
   }
 `;
 
-export const TaskListFooter = styled("div")<{ isEditing: boolean }>`
+export const TaskListFooter = styled("div")<{ isAdding: boolean }>`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -74,18 +75,19 @@ export const TaskListFooter = styled("div")<{ isEditing: boolean }>`
   gap: 8px;
 
   padding: 6px;
-  margin: 12px 4px 0;
+  margin: 12px 6px 0;
 
   color: #b5b5b5;
 
   border-radius: 8px;
   transition: background-color 300ms;
 
-  ${({ isEditing }) =>
-    isEditing
+  ${({ isAdding }) =>
+    isAdding
       ? css`
           cursor: default;
-          margin-top: 0;
+          padding: 8px 6px 0;
+          margin: 0;
         `
       : css`
           cursor: pointer;
@@ -97,7 +99,9 @@ export const TaskListFooter = styled("div")<{ isEditing: boolean }>`
 `;
 
 export const TaskAddButton = styled("button")`
-  padding: 6px 12px;
+  width: fit-content;
+
+  padding: 8px 10px;
 
   border-radius: 4px;
   background-color: #b8e6c7;
@@ -116,5 +120,24 @@ export const TaskAddButton = styled("button")`
 
   &:not(:disabled):hover {
     background-color: #a2c8b6;
+  }
+`;
+
+export const CloseIcon = styled("div")<{ size: string }>`
+  width: ${({ size }) => size};
+  height: ${({ size }) => size};
+
+  background-image: url(${closeIcon});
+  background-size: cover;
+
+  object-fit: cover;
+
+  transition: all 300ms;
+  opacity: 0.6;
+
+  cursor: pointer;
+
+  &:hover {
+    opacity: 1;
   }
 `;

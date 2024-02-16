@@ -17,6 +17,11 @@ export const TaskText = styled("span")`
 `;
 
 export const TaskTextarea = styled("textarea")`
+  width: 100%;
+  min-height: 56px;
+
+  padding: 8px 12px;
+
   color: #b5b5b5;
   font-size: 14px;
 

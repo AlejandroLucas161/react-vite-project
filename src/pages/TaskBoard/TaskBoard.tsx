@@ -1,6 +1,6 @@
+import Navbar from "@/components/Navbar";
+import useStore from "@/store/store";
 import { FunctionComponent, useState } from "react";
-import Navbar from "../../components/Navbar";
-import useStore from "../../store/store";
 import TaskList from "./components/TaskList";
 import {
   AddTaskListButton,

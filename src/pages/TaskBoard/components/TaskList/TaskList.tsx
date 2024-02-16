@@ -1,3 +1,4 @@
+import useStore, { TaskListType } from "@/store/store";
 import {
   ChangeEvent,
   Dispatch,
@@ -6,11 +7,11 @@ import {
   SetStateAction,
   useState,
 } from "react";
-import useStore, { TaskListType } from "../../../../store/store";
-import { PlusIcon } from "../../style";
-// import Task from "./Task";
 import { v4 } from "uuid";
+import { PlusIcon } from "../../style";
+import Task from "./Task";
 import {
+  CloseIcon,
   TaskAddButton,
   TaskListContainer,
   TaskListFooter,
@@ -30,11 +31,12 @@ const TaskList: FunctionComponent<TaskListProps> = ({
   setIsAdding,
 }) => {
   const { setLists } = useStore();
+  const [addingTask, setAddingTask] = useState<boolean>(false);
   const [taskList, setTaskList] = useState<TaskListType>({
     id: null,
     title: title || "",
     tasks: [],
-    isEditing: isAdding,
+    isAdding: isAdding,
   });
 
   const handleTitleChange = (e: ChangeEvent<HTMLInputElement>) =>
@@ -45,7 +47,7 @@ const TaskList: FunctionComponent<TaskListProps> = ({
       ...taskList,
       id: v4(),
       title: taskList.title,
-      isEditing: false,
+      isAdding: false,
     });
     setIsAdding?.(false);
     setLists(taskList);
@@ -62,33 +64,46 @@ const TaskList: FunctionComponent<TaskListProps> = ({
       <TaskListContainer>
         <TaskListTitle
           autoFocus
-          value={taskList.isEditing ? taskList.title : title}
-          isEditing={!!taskList.isEditing}
-          readOnly={!taskList.isEditing}
+          value={taskList.isAdding ? taskList.title : title}
+          readOnly={!taskList.isAdding}
           onChange={handleTitleChange}
           onKeyDown={handleKeyDown}
         />
 
         <Tasks>
-          {/* {Array(4)
-            .fill({})
-            .map((_, idx) => (
-              <Task key={idx} />
-            ))} */}
+          {addingTask ? (
+            <Task addingTask />
+          ) : (
+            taskList.tasks &&
+            taskList.tasks.map(({ id, task }) => <Task key={id} task={task} />)
+          )}
         </Tasks>
 
-        <TaskListFooter isEditing={!!taskList.isEditing}>
-          {!taskList.isEditing ? (
-            <>
-              <PlusIcon size="16px" />
-              Add a task
-            </>
-          ) : (
-            <TaskAddButton disabled={!taskList.title} onClick={handleAddList}>
-              Add list
+        {taskList.isAdding || addingTask ? (
+          <TaskListFooter isAdding>
+            <TaskAddButton
+              disabled={!taskList.title}
+              onClick={addingTask ? () => setAddingTask(false) : handleAddList}
+            >
+              Add {taskList.isAdding ? "list" : "card"}
             </TaskAddButton>
-          )}
-        </TaskListFooter>
+
+            <CloseIcon
+              size="16px"
+              onClick={() =>
+                taskList.isAdding ? setIsAdding?.(false) : setAddingTask(false)
+              }
+            />
+          </TaskListFooter>
+        ) : (
+          <TaskListFooter
+            isAdding={!!taskList.isAdding}
+            onClick={() => setAddingTask(!addingTask)}
+          >
+            <PlusIcon size="16px" />
+            Add a task
+          </TaskListFooter>
+        )}
       </TaskListContainer>
     </>
   );

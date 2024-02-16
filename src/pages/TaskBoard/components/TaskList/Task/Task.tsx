@@ -1,15 +1,21 @@
 import { FunctionComponent } from "react";
-import { TaskText, TaskTextContaner } from "./style";
-// import { TaskTextarea } from "./style";
+import { TaskText, TaskTextContaner, TaskTextarea } from "./style";
 
-const Task: FunctionComponent = () => {
+type TaskProps = {
+  task?: string;
+  addingTask?: boolean;
+};
+
+const Task: FunctionComponent<TaskProps> = ({ task, addingTask }) => {
   return (
     <>
-      <TaskTextContaner>
-        <TaskText>Task</TaskText>
-      </TaskTextContaner>
-
-      {/* <TaskTextarea placeholder="Enter a task name..." /> */}
+      {!addingTask ? (
+        <TaskTextContaner>
+          <TaskText>{task || ""}</TaskText>
+        </TaskTextContaner>
+      ) : (
+        <TaskTextarea placeholder="Enter a task name..." />
+      )}
     </>
   );
 };
